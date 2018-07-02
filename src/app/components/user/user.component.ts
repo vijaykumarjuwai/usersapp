@@ -15,12 +15,7 @@ export class UserComponent {
         this.user = {
             firstName: 'John',
             lastName: 'Doe',
-            age: 30,
-            address: {
-                street: '50 main st',
-                city: 'Shanghai',
-                state: 'Shanghai'
-            }
+            email: 'john@doe.com'
         };
     }
 }
