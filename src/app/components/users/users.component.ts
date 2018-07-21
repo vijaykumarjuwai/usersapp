@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: ''
-  }
+  };
   users: User[];
   showExtended: boolean;
   loaded: boolean;
@@ -72,6 +72,4 @@ export class UsersComponent implements OnInit {
       this.form.reset();
     }
   }
-
-
 }
