@@ -9,6 +9,12 @@ import { PostService } from '../../services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
+  currentPost: Post = {
+    id: 0,
+    title: '',
+    body: ''
+  };
+  isEdit = false;
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -19,5 +25,25 @@ export class PostsComponent implements OnInit {
 
   onNewPost(post: Post) {
     this.posts.unshift(post);
+  }
+
+  editPost(post: Post) {
+    this.currentPost = post;
+    this.isEdit = true;
+  }
+
+  onUpdatedPost(post: Post) {
+    this.posts.forEach((cur, index) => {
+      if (post.id === cur.id) {
+        this.posts.splice(index, 1);
+        this.posts.unshift(post);
+        this.isEdit = false;
+      }
+      this.currentPost = {
+        id: 0,
+        title: '',
+        body: ''
+      };
+    });
   }
 }
